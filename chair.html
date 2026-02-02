@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chair Command Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="chair-body">
+    <nav class="nav">
+        <div class="brand">MUN<span>COMMAND PRO</span></div>
+        <div class="quorum-pill">QUORUM: <span id="quorum-val">0</span> | SIMPLE: <span id="simple-maj">0</span> | 2/3: <span id="triple-maj">0</span></div>
+    </nav>
+
+    <div class="main-layout">
+        <div class="sidebar">
+            <div class="glass-card">
+                <h3>DEBATE TIMER</h3>
+                <div id="chair-timer" class="timer-text">01:30</div>
+                <div class="btn-group">
+                    <button onclick="startTimer()" class="btn-green">START</button>
+                    <button onclick="pauseTimer()" class="btn-red">PAUSE</button>
+                </div>
+                <div class="btn-group" style="margin-top:10px;">
+                    <button onclick="resetTimer(90)" class="btn-outline">90s</button>
+                    <button onclick="resetTimer(60)" class="btn-outline">60s</button>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h3>QUORUM & ATTENDANCE</h3>
+                <input type="number" id="total-countries" placeholder="Total Countries Present" onchange="updateQuorum(this.value)">
+                <p style="font-size:0.8rem; color:#94a3b8;">Enter total present to calculate majority.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>VOTING PROTOCOL</h3>
+                <div class="btn-group">
+                    <button onclick="castVote('yes')" class="btn-green">YES</button>
+                    <button onclick="castVote('no')" class="btn-red">NO</button>
+                    <button onclick="castVote('abs')" class="btn-outline">ABS</button>
+                </div>
+                <div id="vote-tally" style="text-align:center; font-family:monospace; margin-top:10px; font-size:1.2rem;">Y:0 N:0 A:0</div>
+                <button onclick="resetVote()" class="btn-outline" style="width:100%; margin-top:5px;">RESET</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="glass-card">
+                <h3>MODERATED CAUCUS TRACKER</h3>
+                <div style="display:flex; gap:10px;">
+                    <input type="text" id="caucus-topic" placeholder="Caucus Topic (e.g. Sustainable Energy)">
+                    <input type="number" id="caucus-total" placeholder="Total Mins">
+                </div>
+                <button onclick="updateCaucus()" class="btn-gold" style="width:100%">UPDATE CAUCUS INFO</button>
+            </div>
+
+            <div class="glass-card">
+                <h3>FLOOR & BULLETIN</h3>
+                <input type="text" id="speaker-input" placeholder="RECOGNIZE COUNTRY...">
+                <button onclick="setSpeaker()" class="btn-gold" style="width:100%">SET SPEAKER</button>
+                <input type="text" id="msg-input" placeholder="URGENT MESSAGE/TICKER...">
+                <button onclick="updateMessage()" class="btn-gold" style="width:100%">POST BULLETIN</button>
+            </div>
+
+            <div class="glass-card">
+                <h3>RESOLUTION DRAFTER</h3>
+                <input type="text" id="res-title" placeholder="TITLE (e.g. DR 1.1)">
+                <textarea id="res-body" rows="3" placeholder="OPERATIVE CLAUSES..."></textarea>
+                <button onclick="updateResolution()" class="btn-gold" style="width:100%">PUBLISH</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

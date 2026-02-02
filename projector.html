@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projector View</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="proj-bg">
+    <div id="proj-msg-bar" class="msg-ticker pulse">WELCOME TO THE INTERNATIONAL SESSION</div>
+
+    <div id="caucus-box" class="caucus-info" style="display:none;">
+        CAUCUS ON: <span id="proj-caucus-topic">NONE</span> | TOTAL TIME: <span id="proj-caucus-time">0</span>m
+    </div>
+
+    <div class="proj-container" id="main-timer-container">
+        <div class="label-gold">CURRENTLY RECOGNIZED</div>
+        <div id="proj-country" class="proj-country shadow-text">FLOOR CLOSED</div>
+        <div id="proj-timer" class="proj-timer">01:30</div>
+    </div>
+
+    <div id="res-overlay" class="res-modal" style="display:none;">
+        <h1 id="proj-res-title"></h1>
+        <div id="proj-res-body"></div>
+        <button onclick="document.getElementById('res-overlay').style.display='none'" class="btn-gold">CLOSE PREVIEW</button>
+    </div>
+
+    <div class="proj-footer">
+        <div id="proj-votes">YES: 0 | NO: 0 | ABS: 0</div>
+        <button onclick="toggleResView()" class="btn-outline">VIEW RESOLUTION</button>
+        <div id="proj-quorum">SIMPLE MAJ: 0</div>
+    </div>
+
+    <audio id="gavelSound" src="https://www.soundjay.com/misc/sounds/gavel-1.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
